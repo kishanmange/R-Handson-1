@@ -1,23 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
+import Functioncompo from './components/functioncompo';
+import Classcompo from './components/classcompo';
+import { useState } from 'react';
+
+
 
 function App() {
+
+  const [fstate,setfstate] = useState(false);
+  const [cstate,setcstate] = useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 style={ {textAlign : 'center'}}>styling using function and class components</h1>
+      <div className='box'><button className='btn1' onClick={()=>setfstate(!fstate)} >function compo</button>
+      <button className='btn2' onClick={()=>setcstate(!cstate)}>class compo</button></div>
+     <div className='box1'>{fstate ? <Functioncompo/> : " "}
+     {cstate ? <Classcompo/>: " "}</div>
+      
+     
+      
     </div>
   );
 }
